@@ -1,8 +1,13 @@
 <template>
-  <div>登录</div>
+  <div @click="toChat()">登录</div>
 </template>
 <script>
 export default {
-  name: "Login"
+  name: "Login",
+  methods: {
+    toChat: function() {
+      this.$router.push("chat");
+    }
+  }
 };
 </script>
