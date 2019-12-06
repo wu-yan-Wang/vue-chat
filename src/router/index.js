@@ -1,5 +1,5 @@
 import Login from '@/pages/login';
-import Chat from '../pages/chat'
+import Chat from '@/pages/chat'
 import VueRoute from 'vue-router'
 import Vue from 'vue'
 
