@@ -35,7 +35,8 @@
       "eslint:recommended"
     ],
     "rules": {
-      "no-console": 1
+      "no-console": 1,
+      "quotes":"double"
     },
     "parserOptions": {
       "parser": "babel-eslint"

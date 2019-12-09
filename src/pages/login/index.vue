@@ -10,7 +10,10 @@
       >
         <a-form-item>
           <a-input
-            v-decorator="[ 'userName',{ rules:[{required: true,message: 'Please input your username!'  ,initialValue:'admin'}] },]"
+            v-decorator="[
+              'userName',
+              { rules:[{required: true,message: 'Please input your username!' }],initialValue:'admin' },
+            ]"
             placeholder="Username"
           >
             <a-icon
@@ -23,9 +26,9 @@
         <a-form-item>
           <a-input
             v-decorator="[
-            'password',
-            { rules: [{ required: true, message: 'Please input your Password!' }] },
-          ]"
+              'password',
+              { rules: [{ required: true, message: 'Please input your Password!' }] },
+            ]"
             type="password"
             placeholder="Password"
           >
@@ -37,13 +40,15 @@
           </a-input>
         </a-form-item>
         <a-form-item>
-          <a-checkbox v-decorator="[
-            'remember',
-            {
-              valuePropName: 'checked',
-              initialValue: true,
-            },
-          ]">
+          <a-checkbox
+            v-decorator="[
+              'remember',
+              {
+                valuePropName: 'checked',
+                initialValue: true,
+              },
+            ]"
+          >
             Remember me
           </a-checkbox>
           <a
@@ -74,37 +79,38 @@ import {
   Form as AForm,
   Icon as AIcon,
   Checkbox as ACheckbox
-} from "ant-design-vue";
-const AFormItem = AForm.Item;
+} from 'ant-design-vue'
+const AFormItem = AForm.Item
 export default {
-  name: "Login",
+  name: 'Login',
   components: {
     AForm,
     AFormItem,
     AIcon,
     ACheckbox
   },
-  data:function() {
-return {};
-},
+  data() {
+    return {
+
+    }
+  },
   beforeCreate() {
     this.form = this.$form.createForm(this, {
       name: 'normal_login'
-    });
-
+    })
   },
   methods: {
     handleSubmit(e) {
-      e.preventDefault();
+      e.preventDefault()
       this.form.validateFields((err, values) => {
         if (!err) {
-          this.$router.push('/chat');
-          console.log('Received values of form: ', values);
+          this.$router.push('/chat')
+          console.log('Received values of form: ', values)
         }
-      });
-    },
-  },
-};
+      })
+    }
+  }
+}
 </script>
 
 <style lang="less">
