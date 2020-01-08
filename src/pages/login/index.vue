@@ -1,6 +1,5 @@
 <template>
   <div class="login-wapper">
-
     <div class="login-form">
       <h1>登录</h1>
       <a-form
@@ -12,31 +11,33 @@
           <a-input
             v-decorator="[
               'userName',
-              { rules:[{required: true,message: 'Please input your username!' }],initialValue:'admin' },
+              {
+                rules: [
+                  { required: true, message: 'Please input your username!' }
+                ],
+                initialValue: 'admin'
+              }
             ]"
             placeholder="Username"
           >
-            <a-icon
-              slot="prefix"
-              type="user"
-              style="color: rgba(0,0,0,.25)"
-            />
+            <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
           </a-input>
         </a-form-item>
         <a-form-item>
           <a-input
             v-decorator="[
               'password',
-              { rules: [{ required: true, message: 'Please input your Password!' }] },
+              {
+                rules: [
+                  { required: true, message: 'Please input your Password!' }
+                ],
+                initialValue: '123456'
+              }
             ]"
             type="password"
             placeholder="Password"
           >
-            <a-icon
-              slot="prefix"
-              type="lock"
-              style="color: rgba(0,0,0,.25)"
-            />
+            <a-icon slot="prefix" type="lock" style="color: rgba(0,0,0,.25)" />
           </a-input>
         </a-form-item>
         <a-form-item>
@@ -45,23 +46,16 @@
               'remember',
               {
                 valuePropName: 'checked',
-                initialValue: true,
-              },
+                initialValue: true
+              }
             ]"
           >
             Remember me
           </a-checkbox>
-          <a
-            class="login-form-forgot"
-            href=""
-          >
+          <a class="login-form-forgot" href="">
             Forgot password
           </a>
-          <a-button
-            type="primary"
-            html-type="submit"
-            class="login-form-button"
-          >
+          <a-button type="primary" html-type="submit" class="login-form-button">
             Log in
           </a-button>
           Or
@@ -90,9 +84,7 @@ export default {
     ACheckbox
   },
   data() {
-    return {
-
-    }
+    return {}
   },
   beforeCreate() {
     this.form = this.$form.createForm(this, {
