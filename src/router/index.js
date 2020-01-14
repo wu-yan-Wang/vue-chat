@@ -1,27 +1,19 @@
-import Login from '@/pages/login'
-import Chat from '@/pages/chat'
-import { BasicLayout } from '@/layout'
-import VueRoute from 'vue-router'
 import Vue from 'vue'
+import Router from 'vue-router'
+import { constantRouterMap } from '@/config/router.config'
 
-Vue.use(VueRoute)
-
-const routes = [{
-  path: '/login',
-  component: Login
-},
-{
-  path: '/',
-  component: BasicLayout
-},
-{
-  path: '/chat',
-  name: 'chat',
-  component: Chat
+// hack router push callback
+const originalPush = Router.prototype.push
+Router.prototype.push = function push (location, onResolve, onReject) {
+  if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject)
+  return originalPush.call(this, location).catch(err => err)
 }
-]
 
-const router = new VueRoute({
-  routes
+Vue.use(Router)
+// 构建基本路由
+export default new Router({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  scrollBehavior: () => ({ y: 0 }),
+  routes: constantRouterMap
 })
-export default router
